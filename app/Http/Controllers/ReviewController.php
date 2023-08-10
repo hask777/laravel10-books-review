@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('throttle:reviews')->only(['store']);
+    }
 
     /**
      * Show the form for creating a new resource.
